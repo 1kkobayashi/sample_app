@@ -14,4 +14,11 @@ RSpec.describe StaticPagesController, type: :controller do
       expect(response.status).to eq(200)
     end
   end
+
+  describe "#about" do
+    it "aboutページにアクセスする" do
+     get :about
+     expect(response.status).to eq(200)
+    end
+  end
 end
