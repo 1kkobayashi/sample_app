@@ -5,6 +5,7 @@ RSpec.describe StaticPagesController, type: :controller do
     it "homeページにアクセスできる" do
       get :home
       expect(response.status).to eq(200)
+      assert_select "title", "Home | Ruby on Rails Tutorial Sample App"
     end
   end
 
@@ -12,6 +13,7 @@ RSpec.describe StaticPagesController, type: :controller do
     it "helpページにアクセスできる" do
       get :help
       expect(response.status).to eq(200)
+      assert_select "title", "Help | Ruby on Rails Tutorial Sample App"
     end
   end
 
@@ -19,6 +21,7 @@ RSpec.describe StaticPagesController, type: :controller do
     it "aboutページにアクセスする" do
      get :about
      expect(response.status).to eq(200)
+     assert_select "title", "About | Ruby on Rails Tutorial Sample App"
     end
   end
 end
