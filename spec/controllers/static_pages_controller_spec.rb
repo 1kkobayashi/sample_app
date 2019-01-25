@@ -9,7 +9,7 @@ RSpec.describe StaticPagesController, type: :controller do
     it "homeページにアクセスし、タイトルが正しく表示されるか" do
       get :home
       expect(response.status).to eq(200)
-      assert_select "title", "Home | #{base_title}"
+      assert_select "title", "#{base_title}"
     end
   end
 
