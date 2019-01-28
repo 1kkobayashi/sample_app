@@ -1,13 +1,9 @@
 class Fan < ApplicationRecord
-  validate :first_name, presence: true
-  validate :last_name, presence: true
-  validate :age, presence: true, numericality: { only_integer: true }
-
-  validate :over18?
-
-  def over18?
-    (age - 18) >= 0
-  end
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :age, presence: true,
+    numericality: { only_integer: true, greater_than_or_equal_to: 18 },
+    allow_nil: false
 
   # NOTE: 誕生日と年齢が確からしいかvalidateメソッドを作って確認してみよう
 

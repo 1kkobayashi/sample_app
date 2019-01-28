@@ -63,6 +63,10 @@ class FansController < ApplicationController
   end
 
   private
+    def load_fans
+      @fans = Fan.all
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_fan
       @fan = Fan.find(params[:id])

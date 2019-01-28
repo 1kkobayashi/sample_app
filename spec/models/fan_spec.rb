@@ -2,11 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Fan, type: :model do
   describe ".new" do
-    subject do
-      Fan.create(attr)
-    end
+    subject { Fan.new(attr).save }
 
-    context "18歳以下のとき" do
+    context "18歳未満のとき" do
       let(:attr) do
         {
           first_name: "alice",
@@ -18,14 +16,13 @@ RSpec.describe Fan, type: :model do
 
       it "登録できないこと" do
         is_expected.to be false
-        expect { subject }.not_to change(Fan, :count)
       end
     end
 
     context "18歳以上のとき" do
       let(:attr) do
         {
-          first_name: "alice",
+          first_name: "charlie",
           last_name: "bob",
           age: 18,
           birthday: Date.today - 18.years
@@ -34,7 +31,6 @@ RSpec.describe Fan, type: :model do
 
       it "登録成功すること" do
         is_expected.to be true
-        expect { subject }.to change(Fan, :count).by(1)
       end
     end
   end
