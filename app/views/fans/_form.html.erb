@@ -1,0 +1,37 @@
+<%= form_with(model: fan, local: true) do |form| %>
+  <% if fan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fan.errors.count, "error") %> prohibited this fan from being saved:</h2>
+
+      <ul>
+      <% fan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: :fan_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :fan_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field :age, id: :fan_age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birthday %>
+    <%= form.date_select :birthday, id: :fan_birthday %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
