@@ -26,7 +26,7 @@ class FansController < ApplicationController
   # POST /fans.json
   def create
     @fan = Fan.new(fan_params)
-
+  
     respond_to do |format|
       if @fan.save
         format.html { redirect_to @fan, notice: 'Fan was successfully created.' }
@@ -74,6 +74,6 @@ class FansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fan_params
-      params.require(:fan).permit(:first_name, :last_name, :age, :birthday)
+      params.require(:fan).permit(:first_name, :last_name, :age, :birthday, :gender)
     end
 end

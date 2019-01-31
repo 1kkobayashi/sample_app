@@ -31,6 +31,11 @@
     <%= form.date_select :birthday, id: :fan_birthday %>
   </div>
 
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.select :gender, options_for_select(Fan.genders.each { |k, v| Fan.genders[k] = k }) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
