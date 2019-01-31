@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Full name</th>
+      <th>Age</th>
+      <th>Birthday</th>
+      <th>Gender</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fans.each do |fan| %>
+      <tr>
+        <td><%= fan.full_name %></td>
+        <td><%= fan.age %></td>
+        <td><%= fan.birthday %></td>
+        <td><%= fan.gender %></td>
+        <td><%= link_to 'Show', fan %></td>
+        <td><%= link_to 'Edit', edit_fan_path(fan) %></td>
+        <td><%= link_to 'Destroy', fan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fan', new_fan_path %>
